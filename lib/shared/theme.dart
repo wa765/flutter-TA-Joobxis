@@ -50,3 +50,7 @@ FontWeight semiBold = FontWeight.w600;
 FontWeight extraBold = FontWeight.w800;
 
 FontWeight black = FontWeight.w900;
+
+// Radius Doc
+double defaultMargin = 24.0;
+double defaultRadius = 10.0;
