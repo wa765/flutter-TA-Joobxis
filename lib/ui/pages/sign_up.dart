@@ -1,4 +1,6 @@
 import 'package:findjob/shared/theme.dart';
+import 'package:findjob/ui/widgets/continue_with.dart';
+import 'package:findjob/ui/widgets/costum_button.dart';
 import 'package:findjob/ui/widgets/costum_text_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +19,17 @@ class SignUpPage extends StatelessWidget {
     //
     // Icon Back
     Widget iconBack() {
-      return Container(
-        margin: const EdgeInsets.only(bottom: 24),
-        height: 24,
-        width: 24,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/icon-back.png'),
+      return GestureDetector(
+        // belum ada navigation
+        onTap: () {},
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 24),
+          height: 24,
+          width: 24,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/icon-back.png'),
+            ),
           ),
         ),
       );
@@ -97,6 +103,15 @@ class SignUpPage extends StatelessWidget {
         );
       }
 
+      // Submit Button
+      Widget submitButton() {
+        return CostumButton(
+          title: "Register",
+          onPressed: () {},
+          margin: const EdgeInsets.only(top: 16),
+        );
+      }
+
       //
       return Container(
         padding: const EdgeInsets.only(top: 16, bottom: 16),
@@ -105,9 +120,16 @@ class SignUpPage extends StatelessWidget {
             inputName(),
             inputEmail(),
             inputPassword(),
+            submitButton(),
           ],
         ),
       );
+    }
+
+    // widget continue
+    Widget ContinueLogin() {
+      return ContinueWithLogin(
+          imageUrl: "assets/line.png", title: "Or Continue With;");
     }
 
     //
@@ -116,9 +138,17 @@ class SignUpPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           margin: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [iconBack(), title(), registerText(), inputSection()],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                iconBack(),
+                title(),
+                registerText(),
+                inputSection(),
+                ContinueLogin(),
+              ],
+            ),
           ),
         ),
       ),
