@@ -1,6 +1,5 @@
 import 'package:findjob/shared/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class IndicatorSlider extends StatelessWidget {
   //
@@ -29,10 +28,13 @@ class IndicatorSlider extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  imageURL,
-                  width: MediaQuery.of(context).size.width / 1.2,
-                  height: 380,
+                Container(
+                  margin: const EdgeInsets.only(top: 64),
+                  child: Image.asset(
+                    imageURL,
+                    width: MediaQuery.of(context).size.width / 1.2,
+                    height: 340,
+                  ),
                 ),
                 Text(
                   title,
@@ -49,9 +51,7 @@ class IndicatorSlider extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(
-                  height: 164,
-                ),
+                const Spacer(),
               ],
             ),
           ),
@@ -119,22 +119,25 @@ class _OnBoardingState extends State<OnBoarding> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: List<Widget>.generate(pages.length, (int index) {
-                  return AnimatedContainer(
-                    duration: Duration(milliseconds: 300),
-                    height: 8,
-                    width: (index == _currentPage) ? 30 : 10,
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 30,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: (index == _currentPage)
-                            ? kPrimaryColor
-                            : kGrayColor.withOpacity(0.5)),
-                  );
-                }),
+                children: List<Widget>.generate(
+                  pages.length,
+                  (int index) {
+                    return AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      height: 8,
+                      width: (index == _currentPage) ? 30 : 10,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 30,
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: (index == _currentPage)
+                              ? kPrimaryColor
+                              : kGrayColor.withOpacity(0.5)),
+                    );
+                  },
+                ),
               ),
               const SizedBox(
                 height: 32,

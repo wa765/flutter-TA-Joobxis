@@ -1,22 +1,17 @@
-import 'package:findjob/shared/theme.dart';
-import 'package:findjob/ui/widgets/continue_with.dart';
-import 'package:findjob/ui/widgets/costum_button.dart';
-import 'package:findjob/ui/widgets/costum_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class SignUpPage extends StatelessWidget {
-  SignUpPage({Key? key}) : super(key: key);
-  // Controller Form
+import '../../shared/theme.dart';
+import '../widgets/costum_text_form_field.dart';
+
+class LoginPage extends StatelessWidget {
+  LoginPage({Key? key}) : super(key: key);
+  // Form Controller
   final TextEditingController nameController = TextEditingController(text: '');
   final TextEditingController passwordController =
-      TextEditingController(text: '');
-  final TextEditingController emailController = TextEditingController(text: '');
-  final TextEditingController confirmPasswrodController =
       TextEditingController(text: '');
   //
   @override
   Widget build(BuildContext context) {
-    //
     // Icon Back
     Widget iconBack() {
       return GestureDetector(
@@ -51,7 +46,7 @@ class SignUpPage extends StatelessWidget {
     }
 
     // Register & Description
-    Widget registerText() {
+    Widget loginText() {
       return Container(
         margin: const EdgeInsets.only(bottom: 32),
         child: Column(
@@ -74,44 +69,25 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
-    // Input Section
+    // Form Widget
     Widget inputSection() {
       // Name Input Widget
-      Widget inputName() {
+      Widget inputEmail() {
         return CostumTextField(
           iconUrl: 'assets/icon_username.png',
-          hintText: "Full Name",
+          hintText: "E-Mail",
           controller: nameController,
           obsecureText: false,
         );
       }
 
-      // Email Input Widget
-      Widget inputEmail() {
-        return CostumTextField(
-          iconUrl: "assets/icon_email.png",
-          hintText: "E-mail",
-          controller: emailController,
-          obsecureText: false,
-        );
-      }
-
-      // Password Input Widget
+      // Email Widget
       Widget inputPassword() {
         return CostumTextField(
-          iconUrl: "assets/icon_password.png",
-          hintText: "Password",
+          iconUrl: 'assets/icon_password.png',
+          hintText: "password",
           controller: passwordController,
           obsecureText: true,
-        );
-      }
-
-      // Submit Button
-      Widget submitButton() {
-        return CostumButton(
-          title: "Register",
-          onPressed: () {},
-          margin: const EdgeInsets.only(top: 16),
         );
       }
 
@@ -120,44 +96,8 @@ class SignUpPage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 16, bottom: 16),
         child: Column(
           children: [
-            inputName(),
             inputEmail(),
             inputPassword(),
-            submitButton(),
-          ],
-        ),
-      );
-    }
-
-    // widget continue
-    // ini belum kesolved
-    // Widget ContinueLogin() {
-    //   return ContinueWithLogin(
-    //       imageUrl: "assets/line.png", title: "Or Continue With;");
-    // }
-
-    // Have an account ?
-    Widget haveAccount() {
-      return Container(
-        margin: const EdgeInsets.only(top: 24),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Have an account ? ",
-              style: grayTextStyle.copyWith(fontSize: 14),
-            ),
-            GestureDetector(
-              child: Text(
-                "Log in",
-                style: blackTextStyle.copyWith(
-                    fontSize: 14,
-                    fontWeight: medium,
-                    color: kPrimaryColor,
-                    decoration: TextDecoration.underline),
-              ),
-              onTap: () {},
-            )
           ],
         ),
       );
@@ -175,9 +115,8 @@ class SignUpPage extends StatelessWidget {
               children: [
                 iconBack(),
                 title(),
-                registerText(),
+                loginText(),
                 inputSection(),
-                haveAccount(),
               ],
             ),
           ),

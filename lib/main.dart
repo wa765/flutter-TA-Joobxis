@@ -4,6 +4,8 @@ import 'package:findjob/ui/pages/sign_up.dart';
 import 'package:findjob/ui/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'ui/pages/login_page.dart';
+
 void main(List<String> args) {
   runApp(const MyApp());
 }
@@ -16,8 +18,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => SignUpPage(),
-        'OnBoarding_Screen': (context) => const OnBoarding(),
+        '/': (context) => LoginPage(),
+        // 'OnBoarding_Screen': (context) => const OnBoarding(),
         // 'SignUp_Screen': (context) => const SignUpPage(),
       },
     );
