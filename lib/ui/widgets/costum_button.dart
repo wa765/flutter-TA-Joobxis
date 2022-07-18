@@ -24,9 +24,11 @@ class CostumButton extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.07,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: kPrimaryColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+          primary: kPrimaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
         onPressed: onPressed,
         child: Text(title,
             style: blackTextStyle.copyWith(

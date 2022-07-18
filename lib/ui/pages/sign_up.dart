@@ -21,7 +21,9 @@ class SignUpPage extends StatelessWidget {
     Widget iconBack() {
       return GestureDetector(
         // belum ada navigation
-        onTap: () {},
+        onTap: () {
+          Navigator.pop(context);
+        },
         child: Container(
           margin: const EdgeInsets.only(bottom: 24),
           height: 24,
@@ -68,7 +70,7 @@ class SignUpPage extends StatelessWidget {
             Text(
               "Let’s Register. Apply to jobs!",
               style: grayTextStyle.copyWith(),
-            )
+            ),
           ],
         ),
       );
@@ -110,7 +112,9 @@ class SignUpPage extends StatelessWidget {
       Widget submitButton() {
         return CostumButton(
           title: "Register",
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, 'Home_Page');
+          },
           margin: const EdgeInsets.only(top: 16),
         );
       }

@@ -1,3 +1,5 @@
+import 'package:findjob/ui/pages/detail_job.dart';
+import 'package:findjob/ui/pages/home_page.dart';
 import 'package:findjob/ui/pages/indicator_slider.dart';
 import 'package:findjob/ui/pages/sign_up.dart';
 
@@ -18,9 +20,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => LoginPage(),
-        // 'OnBoarding_Screen': (context) => const OnBoarding(),
-        // 'SignUp_Screen': (context) => const SignUpPage(),
+        '/': (context) => const OnBoarding(),
+        'SignUp_Screen': (context) => SignUpPage(),
+        'Detail_Job': (context) => const DetailJob(),
+        'Home_Page': (context) => const HomePage(),
       },
     );
   }

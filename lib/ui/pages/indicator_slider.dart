@@ -1,4 +1,5 @@
 import 'package:findjob/shared/theme.dart';
+import 'package:findjob/ui/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 class IndicatorSlider extends StatelessWidget {
@@ -72,7 +73,7 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding> {
   //
   int? _currentPage;
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
   //
   List pages = [
     const IndicatorSlider(
@@ -166,7 +167,12 @@ class _OnBoardingState extends State<OnBoarding> {
                       borderRadius: BorderRadius.circular(5)),
                   child: (_currentPage == (pages.length - 1))
                       ? GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              'SignUp_Screen',
+                            );
+                          },
                           child: Text(
                             "Explore Now",
                             style: blackTextStyle.copyWith(

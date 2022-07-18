@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../shared/theme.dart';
+import '../widgets/costum_button.dart';
 import '../widgets/costum_text_form_field.dart';
 
 class LoginPage extends StatelessWidget {
@@ -55,15 +56,15 @@ class LoginPage extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(bottom: 8),
               child: Text(
-                "Registration 👍",
+                "Welcome Back 👋",
                 style: blackTextStyle.copyWith(
                     fontSize: 24, fontWeight: semiBold, color: kBlackColor),
               ),
             ),
             Text(
-              "Let’s Register. Apply to jobs!",
+              "Let’s log in. Apply to jobs!",
               style: grayTextStyle.copyWith(),
-            )
+            ),
           ],
         ),
       );
@@ -103,6 +104,42 @@ class LoginPage extends StatelessWidget {
       );
     }
 
+    // Submit Button
+    Widget submitButton() {
+      return CostumButton(
+        title: "Register",
+        onPressed: () {},
+        margin: const EdgeInsets.only(top: 16),
+      );
+    }
+
+    // Have an account ?
+    Widget haveAccount() {
+      return Container(
+        margin: const EdgeInsets.only(top: 24),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Haven't an account ? ",
+              style: grayTextStyle.copyWith(fontSize: 14),
+            ),
+            GestureDetector(
+              child: Text(
+                "Register",
+                style: blackTextStyle.copyWith(
+                    fontSize: 14,
+                    fontWeight: medium,
+                    color: kPrimaryColor,
+                    decoration: TextDecoration.underline),
+              ),
+              onTap: () {},
+            )
+          ],
+        ),
+      );
+    }
+
     //
     return Scaffold(
       backgroundColor: kBackgroundColor,
@@ -117,6 +154,8 @@ class LoginPage extends StatelessWidget {
                 title(),
                 loginText(),
                 inputSection(),
+                submitButton(),
+                haveAccount(),
               ],
             ),
           ),

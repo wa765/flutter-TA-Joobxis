@@ -31,6 +31,8 @@ TextStyle blackTextStyle = GoogleFonts.poppins(
   color: kBlackColor,
 );
 
+// Text White
+TextStyle whiteTextStyle = GoogleFonts.poppins(color: kWhiteColor);
 // Text Gray
 TextStyle grayTextStyle = GoogleFonts.poppins(color: kGrayColor);
 
